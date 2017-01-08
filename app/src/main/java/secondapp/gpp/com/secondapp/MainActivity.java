@@ -1,6 +1,5 @@
 package secondapp.gpp.com.secondapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -10,18 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
-    public static final String TAG="GPP";
+    public static final String TAG = "GPP";
     private ViewPager viewPager;
     private ArrayList<Fragment> list_fm = new ArrayList<>();
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -44,7 +39,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.v(TAG,"---onCreate()");
+        Log.v(TAG, "Activity---onCreate()");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -67,21 +62,21 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     protected void onStart() {
-        Log.v(TAG,"---onStart()");
+        Log.v(TAG, "Activity---onStart()");
 
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.v(TAG,"---onResume()");
+        Log.v(TAG, "Activity---onResume()");
 
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.v(TAG,"---onPause()");
+        Log.v(TAG, "Activity---onPause()");
 
         super.onPause();
     }
@@ -89,27 +84,26 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     protected void onStop() {
-        Log.v(TAG,"---onStop()");
+        Log.v(TAG, "Activity---onStop()");
 
         super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        Log.v(TAG,"---onDestroy()");
+        Log.v(TAG, "Activity---onDestroy()");
 
         super.onDestroy();
     }
 
     @Override
     protected void onRestart() {
-        Log.v(TAG,"---onRestart()");
+        Log.v(TAG, "Activity---onRestart()");
 
 
         super.onRestart();
 
     }
-
 
 
     public void initView() {
@@ -210,20 +204,20 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         @Override
         public void onPageSelected(int position) {
-                switch (position){
-                    case 0:
-                        resetImageBt(1);
-                        break;
-                    case 1:
-                        resetImageBt(2);
-                        break;
-                    case 2:
-                        resetImageBt(3);
-                        break;
-                    case 3:
-                        resetImageBt(4);
-                        break;
-                }
+            switch (position) {
+                case 0:
+                    resetImageBt(1);
+                    break;
+                case 1:
+                    resetImageBt(2);
+                    break;
+                case 2:
+                    resetImageBt(3);
+                    break;
+                case 3:
+                    resetImageBt(4);
+                    break;
+            }
         }
 
         @Override

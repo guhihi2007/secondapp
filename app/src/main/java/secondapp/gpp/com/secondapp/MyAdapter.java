@@ -1,6 +1,7 @@
 package secondapp.gpp.com.secondapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ public class MyAdapter extends BaseAdapter {
     ViewHolder viewHolder;
     LayoutInflater layoutInflater;
     Context context;
+
 
     public MyAdapter(Context context){
         this.context=context;
@@ -64,15 +66,19 @@ public class MyAdapter extends BaseAdapter {
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,""+(position+1)+ " 开始下载....",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(context,MyService.class);
+                context.startService(intent);
+                Toast.makeText(context,""+(position+1)+ " 开始播放....",Toast.LENGTH_SHORT).show();
             }
         });
         return convertView;
     }
 
+
+
     public final class ViewHolder{
         public TextView textView1;
-//        public TextView textView2;
         public ImageView imageView;
         public Button button;
     }

@@ -15,17 +15,10 @@
         <TextView
             android:id="@+id/list_tv1"
             android:text="Item"
-            android:textSize="30sp"
+            android:textSize="15sp"
             android:layout_marginLeft="60dp"
             android:layout_width="160dp"
             android:layout_height="44dp" />
-        <!--<TextView-->
-            <!--android:id="@+id/list_tv2"-->
-            <!--android:text="Item"-->
-            <!--android:textSize="15sp"-->
-            <!--android:layout_below="@id/list_tv1"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content" />-->
         <Button
             android:id="@+id/list_bt"
             android:layout_alignParentRight="true"
@@ -33,6 +26,6 @@
             android:layout_height="40dp"
             android:focusable="false"
             android:layout_centerVertical="true"
-            android:text="下载"
+            android:text="播放"
             />
 </RelativeLayout>
