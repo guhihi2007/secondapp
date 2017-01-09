@@ -2,6 +2,7 @@ package secondapp.gpp.com.secondapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
  */
 
 public class MyAdapter extends BaseAdapter {
+    public static final String TAG = "Service";
 
     ViewHolder viewHolder;
     LayoutInflater layoutInflater;
@@ -60,6 +62,9 @@ public class MyAdapter extends BaseAdapter {
         viewHolder.textView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.v(TAG,"文本："+position+"");
+                Log.v(TAG,"id："+v.getId()+"");
                 Toast.makeText(context,""+(position+1)+ " 你点了我一下",Toast.LENGTH_SHORT).show();
             }
         });
@@ -69,6 +74,9 @@ public class MyAdapter extends BaseAdapter {
                 Intent intent = new Intent();
                 intent.setClass(context,MyService.class);
                 context.startService(intent);
+                Log.v(TAG,"按钮："+position+"");
+                Log.v(TAG,"id："+v.getId()+"");
+
                 Toast.makeText(context,""+(position+1)+ " 开始播放....",Toast.LENGTH_SHORT).show();
             }
         });

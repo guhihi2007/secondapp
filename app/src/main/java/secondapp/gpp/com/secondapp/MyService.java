@@ -3,6 +3,7 @@ package secondapp.gpp.com.secondapp;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -15,18 +16,21 @@ public class MyService extends Service {
 
     public static final String TAG = "Service";
     MediaPlayer mediaPlayer;
+
+    public MyBinder myBinder = new MyBinder();
+
     @Override
     public void onCreate() {
         super.onCreate();
 
         mediaPlayer = MediaPlayer.create(this,R.raw.shang);
-        Log.v(TAG, "Service---onCreate");
+        Log.v(TAG, "调用MyService--onCreate");
 
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(TAG, "Service---onStartCommannd");
+        Log.v(TAG, "调用MyService--onStartCommannd");
         mediaPlayer.start();
         return super.onStartCommand(intent, flags, startId);
     }
@@ -35,14 +39,21 @@ public class MyService extends Service {
     public void onDestroy() {
         super.onDestroy();
         mediaPlayer.stop();
-        Log.v(TAG, "Service---onDestroy");
+        Log.v(TAG, "调用MyService--onDestroy");
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.v(TAG, "Service---onBind");
-        return null;
+        Log.v(TAG, "调用MyService--onBind");
+        return myBinder;
 
+    }
+
+    class MyBinder extends Binder {
+        public static final String TAG = "Service";
+        public void startDownload(){
+            Log.v(TAG,"调用MyBinder.startDownload方法");
+        }
     }
 }
