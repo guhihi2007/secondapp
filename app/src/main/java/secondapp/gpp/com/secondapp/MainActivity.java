@@ -1,5 +1,6 @@
 package secondapp.gpp.com.secondapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
-    public static final String TAG = "GPP";
+    public static final String TAG = "Service";
     private ViewPager viewPager;
     private ArrayList<Fragment> list_fm = new ArrayList<>();
     private FragmentManager fragmentManager = getSupportFragmentManager();
@@ -92,7 +93,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         Log.v(TAG, "Activity---onDestroy()");
-
+        stopService(new Intent(this,MyService.class));
         super.onDestroy();
     }
 
