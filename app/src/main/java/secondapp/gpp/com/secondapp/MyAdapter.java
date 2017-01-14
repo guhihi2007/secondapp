@@ -28,7 +28,7 @@ public class MyAdapter extends BaseAdapter {
     public MyAdapter(Context context) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
-        InitServiceConn();
+//        InitServiceConn();
 
     }
 
@@ -88,11 +88,11 @@ public class MyAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public static ServiceConnection InitServiceConn() {
-        MyService myService = new MyService();
-        ServiceConnection serviceConnection = myService.getserviceConnection();
-        return serviceConnection;
-    }
+//    public static ServiceConnection InitServiceConn() {
+//        MyService myService = new MyService();
+//        ServiceConnection serviceConnection = myService.getserviceConnection();
+//        return serviceConnection;
+//    }
 
     public final class ViewHolder {
         public TextView textView1;

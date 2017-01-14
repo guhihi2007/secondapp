@@ -3,12 +3,14 @@ package secondapp.gpp.com.secondapp;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Administrator on 2017/1/8.
@@ -23,6 +25,10 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
     private Button service_unbind;
     private MyService.MyBinder myBinder;
     Intent intent;
+    private MyBroadCast myBroadCast;
+
+    private Button sendBC_bt;
+    private TextView textView;
 
 
     @Override
@@ -31,6 +37,23 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
         setContentView(R.layout.service_test);
         InitView();
         InitListener();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.gpp.secondapp");
+        myBroadCast =new MyBroadCast();
+        registerReceiver(myBroadCast,intentFilter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(myBroadCast);
+        Log.v("BroadCast", "activity_onStop,unregisterReceiver");
     }
 
 
@@ -57,7 +80,12 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
             case R.id.service_unbind:
                 unbindService(serviceConnection);
                 Log.v(TAG, "解绑按钮");
-
+                break;
+            case R.id.f3_btn:
+                Intent bc_intent = new Intent();
+                String MyBroadCast ="com.gpp.secondapp";
+                bc_intent.setAction(MyBroadCast);
+                ServiceActivity.this.sendBroadcast(bc_intent);
                 break;
         }
     }
@@ -70,6 +98,8 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
         service_bind = (Button) findViewById(R.id.service_bind);
         service_unbind = (Button) findViewById(R.id.service_unbind);
 
+        sendBC_bt=(Button)findViewById(R.id.f3_btn);
+        textView=(TextView)findViewById(R.id.f3_tv);
 
     }
 
@@ -79,6 +109,8 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
         service_stop.setOnClickListener(this);
         service_bind.setOnClickListener(this);
         service_unbind.setOnClickListener(this);
+
+        sendBC_bt.setOnClickListener(this);
 
     }
 

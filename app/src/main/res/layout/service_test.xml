@@ -31,4 +31,19 @@
     android:text="解绑"
     android:textSize="20sp"
     />
+    <TextView
+        android:id="@+id/f3_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BroadCast Test"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
+        />
+    <Button
+        android:id="@+id/f3_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="activate BroadCast"
+        android:textSize="15sp"
+        />
 </LinearLayout>

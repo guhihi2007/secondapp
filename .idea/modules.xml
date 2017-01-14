@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/LTApplicationTest/LTApplicationTest.iml" filepath="$PROJECT_DIR$/LTApplicationTest/LTApplicationTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autotest/autotest.iml" filepath="$PROJECT_DIR$/autotest/autotest.iml" />
       <module fileurl="file://$PROJECT_DIR$/secondapp.iml" filepath="$PROJECT_DIR$/secondapp.iml" />
     </modules>
   </component>

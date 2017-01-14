@@ -1,5 +1,6 @@
 package secondapp.gpp.com.secondapp;
 
+import android.app.Notification;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.ServiceConnection;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.Messenger;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -20,7 +22,6 @@ public class MyService extends Service {
     MediaPlayer mediaPlayer;
     public ServiceConnection serviceConnection;
     public MyBinder myBinder = new MyBinder();
-//    private Integer str;
 
     @Override
     public void onCreate() {
@@ -32,7 +33,12 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.v(TAG, "调用MyService--onStartCommannd");
         Integer str = intent.getIntExtra("position", 110);
-
+        int id = intent.getIntExtra("start",1);
+        if (id==0){
+            startForeground(1,new Notification());
+        }else {
+            stopForeground(true);
+        }
         switch (str) {
             case 0:
                 if (mediaPlayer != null) {
@@ -59,17 +65,16 @@ public class MyService extends Service {
                 mediaPlayer = MediaPlayer.create(this, R.raw.dream);
                 break;
         }
-        bindService(intent,MyAdapter.InitServiceConn(),BIND_AUTO_CREATE);
+//        bindService(intent,MyAdapter.InitServiceConn(),BIND_AUTO_CREATE);
         if (mediaPlayer!=null)
         mediaPlayer.start();
         return super.onStartCommand(intent, flags, startId);
     }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
-        unbindService(MyAdapter.InitServiceConn());
-        mediaPlayer.stop();
+//        unbindService(MyAdapter.InitServiceConn());
+//        mediaPlayer.stop();
         Log.v(TAG, "调用MyService--onDestroy");
     }
 

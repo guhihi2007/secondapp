@@ -7,4 +7,16 @@
     android:layout_height="match_parent">
 
     <include layout="@layout/title_bar"/>
+    <Button
+        android:id="@+id/start_Foreground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开启服务通知"
+        />
+    <Button
+        android:id="@+id/stop_Foreground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭服务通知"
+        />
 </LinearLayout>
