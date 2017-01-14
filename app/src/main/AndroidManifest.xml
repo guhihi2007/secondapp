@@ -14,7 +14,7 @@
 
         <activity android:name=".MySearchBar"
             android:windowSoftInputMode="stateAlwaysVisible"/>
-        <activity android:name=".ServiceActivity" >
+        <activity android:name=".MyServiceActivity" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -26,5 +26,7 @@
                 <!--<action android:name="com.gpp.secondapp"/>-->
             <!--</intent-filter>-->
         <!--</receiver>-->
+        <!--<receiver android:name=".MyBroadCast_Sec" />-->
+        <!--<receiver android:name=".MyBroadCast_Thirth" />-->
     </application>
 </manifest>

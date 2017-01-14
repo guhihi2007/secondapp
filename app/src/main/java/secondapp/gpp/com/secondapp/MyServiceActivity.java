@@ -1,6 +1,7 @@
 package secondapp.gpp.com.secondapp;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -16,7 +17,7 @@ import android.widget.TextView;
  * Created by Administrator on 2017/1/8.
  */
 
-public class ServiceActivity extends Activity implements Initial, View.OnClickListener {
+public class MyServiceActivity extends Activity implements Initial, View.OnClickListener {
     public static final String TAG = "Service";
 
     private Button service_start;
@@ -26,7 +27,8 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
     private MyService.MyBinder myBinder;
     Intent intent;
     private MyBroadCast myBroadCast;
-
+    private MyBroadCast_Sec myBroadCast_sec;
+    private MyBroadCast_Thirth myBroadCast_thirth;
     private Button sendBC_bt;
     private TextView textView;
 
@@ -43,11 +45,27 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
     @Override
     protected void onStart() {
         super.onStart();
+
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.gpp.secondapp");
-        myBroadCast =new MyBroadCast();
-        registerReceiver(myBroadCast,intentFilter);
+//        intentFilter.addAction("com.gpp.secondapp");
+        intentFilter.addAction("android.intent.action.USER_PRESENT");
+//        intentFilter.setPriority(1000);
+        myBroadCast = new MyBroadCast();
+        registerReceiver(myBroadCast, intentFilter);
+
+        IntentFilter intentFilter2 = new IntentFilter();
+        intentFilter2.addAction("com.gpp.secondapp");
+        intentFilter2.setPriority(999);
+        myBroadCast_sec = new MyBroadCast_Sec();
+        registerReceiver(myBroadCast_sec, intentFilter2);
+
+        IntentFilter intentFilter3 = new IntentFilter();
+        intentFilter3.addAction("com.gpp.secondapp");
+        intentFilter3.setPriority(998);
+        myBroadCast_thirth = new MyBroadCast_Thirth();
+        registerReceiver(myBroadCast_thirth, intentFilter3);
     }
+
 
     @Override
     protected void onStop() {
@@ -72,8 +90,8 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
                 Log.v(TAG, "停止按钮");
                 break;
             case R.id.service_bind:
-                Intent bindIntent = new Intent(this,MyService.class);
-                bindService(bindIntent,serviceConnection,BIND_AUTO_CREATE);
+                Intent bindIntent = new Intent(this, MyService.class);
+                bindService(bindIntent, serviceConnection, BIND_AUTO_CREATE);
                 Log.v(TAG, "绑定按钮");
 
                 break;
@@ -82,10 +100,14 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
                 Log.v(TAG, "解绑按钮");
                 break;
             case R.id.f3_btn:
-                Intent bc_intent = new Intent();
-                String MyBroadCast ="com.gpp.secondapp";
-                bc_intent.setAction(MyBroadCast);
-                ServiceActivity.this.sendBroadcast(bc_intent);
+                Intent bc_intent = new Intent("com.gpp.secondapp");
+                bc_intent.putExtra("Msg", "Send message by BroadCast");
+//                String MyBroadCast ="com.gpp.secondapp";
+//                bc_intent.setAction(MyBroadCast);
+                //send Normal BroadCast
+//                MyServiceActivity.this.sendBroadcast(bc_intent);
+//                MyServiceActivity.this.sendOrderedBroadcast(bc_intent,"permission ok");
+                sendOrderedBroadcast(bc_intent, null);
                 break;
         }
     }
@@ -98,8 +120,8 @@ public class ServiceActivity extends Activity implements Initial, View.OnClickLi
         service_bind = (Button) findViewById(R.id.service_bind);
         service_unbind = (Button) findViewById(R.id.service_unbind);
 
-        sendBC_bt=(Button)findViewById(R.id.f3_btn);
-        textView=(TextView)findViewById(R.id.f3_tv);
+        sendBC_bt = (Button) findViewById(R.id.f3_btn);
+        textView = (TextView) findViewById(R.id.f3_tv);
 
     }
 
