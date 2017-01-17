@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import secondapp.gpp.com.secondapp.Initial;
+import secondapp.gpp.com.secondapp.R;
 
 /**
  * Created by Administrator on 2017/1/6.

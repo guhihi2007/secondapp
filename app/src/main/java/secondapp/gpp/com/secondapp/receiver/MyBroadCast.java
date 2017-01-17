@@ -1,10 +1,11 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
+
+import secondapp.gpp.com.secondapp.service.MyService;
 
 /**
  * Created by Administrator on 2017/1/14.
@@ -20,9 +21,11 @@ public class MyBroadCast extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
         String str = intent.getStringExtra("Msg");
         Log.v(TAG, "MyBroadCast:"+str);
-//        abortBroadcast();
+
+//        abortBroadcast();//有序广播时阻止广播扩散
 //        Bundle bundle= new Bundle();
 //        bundle.putString("Msg",str+"--MyBroadCast");
 //        setResultExtras(bundle);

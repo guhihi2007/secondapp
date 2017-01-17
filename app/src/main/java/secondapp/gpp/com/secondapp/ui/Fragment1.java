@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import secondapp.gpp.com.secondapp.R;
+import secondapp.gpp.com.secondapp.base.BaseFragment;
 
 /**
  * Created by Administrator on 2017/1/3.

@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

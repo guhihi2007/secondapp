@@ -1,8 +1,7 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import secondapp.gpp.com.secondapp.service.MyService;
+import secondapp.gpp.com.secondapp.R;
+import secondapp.gpp.com.secondapp.database.DataArray;
 
 
 /**

@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.database;
 
 import java.util.HashMap;
 

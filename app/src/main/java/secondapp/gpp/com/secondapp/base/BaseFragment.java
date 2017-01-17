@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.base;
 
 import android.content.Context;
 import android.os.Bundle;

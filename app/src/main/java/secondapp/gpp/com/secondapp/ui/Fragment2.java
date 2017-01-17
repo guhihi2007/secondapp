@@ -1,21 +1,23 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import secondapp.gpp.com.secondapp.service.MyService;
+import secondapp.gpp.com.secondapp.R;
+import secondapp.gpp.com.secondapp.base.BaseFragment;
 
 /**
  * Created by Administrator on 2017/1/3.
  */
 
-public class Fragment2 extends BaseFragment  implements View.OnClickListener {
+public class Fragment2 extends BaseFragment implements View.OnClickListener {
 
     private Button start;
     private Button stop;

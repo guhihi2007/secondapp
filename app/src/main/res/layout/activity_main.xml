@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="secondapp.gpp.com.secondapp.MainActivity">
+    tools:context="secondapp.gpp.com.secondapp.ui.MainActivity">
     <!--<include layout="@layout/title_bar"/>-->
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"

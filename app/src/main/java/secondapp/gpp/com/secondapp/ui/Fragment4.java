@@ -1,11 +1,13 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import secondapp.gpp.com.secondapp.R;
+import secondapp.gpp.com.secondapp.base.BaseFragment;
 
 /**
  * Created by Administrator on 2017/1/3.

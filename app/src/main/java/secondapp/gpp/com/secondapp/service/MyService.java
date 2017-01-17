@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.service;
 
 import android.app.Notification;
 import android.app.Service;
@@ -8,9 +8,10 @@ import android.content.ServiceConnection;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
-import android.os.Messenger;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
+import secondapp.gpp.com.secondapp.R;
 
 /**
  * Created by Administrator on 2017/1/8.
@@ -20,19 +21,26 @@ public class MyService extends Service {
 
     public static final String TAG = "Service";
     MediaPlayer mediaPlayer;
-    public ServiceConnection serviceConnection;
-    public MyBinder myBinder = new MyBinder();
 
+    /**
+     * 首次创建服务时，系统将调用此方法
+     * 来执行一次性设置程序（在调用 onStartCommand() 或 onBind() 之前）。
+     * 如果服务已在运行，则不会调用此方法。该方法只被调用一次
+     */
     @Override
     public void onCreate() {
         super.onCreate();
         Log.v(TAG, "调用MyService--onCreate");
     }
 
+    /**
+     * 每次通过startService()方法启动Service时都会被回调。
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.v(TAG, "调用MyService--onStartCommannd");
         Integer str = intent.getIntExtra("position", 110);
+
         int id = intent.getIntExtra("start",1);
         if (id==0){
             startForeground(1,new Notification());
@@ -70,6 +78,11 @@ public class MyService extends Service {
         mediaPlayer.start();
         return super.onStartCommand(intent, flags, startId);
     }
+
+
+    /**
+     * 服务销毁时的回调
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -78,6 +91,11 @@ public class MyService extends Service {
         Log.v(TAG, "调用MyService--onDestroy");
     }
 
+
+    /**
+     * 用绑定服务时才会调用
+     * 必须要实现的方法
+     */
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -85,31 +103,11 @@ public class MyService extends Service {
 //        Integer str = intent.getIntExtra("position", 110);
 //        Log.v(TAG, "position:" + str);
 //        startService(intent);
-        return null;
+        return new MyBinder();
 
     }
 
-    class MyBinder extends Binder {
-        public static final String TAG = "Service";
-
-        public void startDownload() {
-            Log.v(TAG, "调用MyBinder.startDownload方法");
-        }
-    }
-
-    public ServiceConnection getserviceConnection() {
-        return serviceConnection = new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                myBinder = (MyService.MyBinder) service;
-                myBinder.startDownload();
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-
-            }
-
-        };
+    public void startDownload() {
+        Log.v(TAG, "调用MyBinder.startDownload方法");
     }
 }

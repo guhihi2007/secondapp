@@ -1,4 +1,4 @@
-package secondapp.gpp.com.secondapp;
+package secondapp.gpp.com.secondapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+
+import secondapp.gpp.com.secondapp.service.MyService;
+import secondapp.gpp.com.secondapp.R;
+import secondapp.gpp.com.secondapp.base.BaseFragment;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
