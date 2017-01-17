@@ -3,6 +3,7 @@ package secondapp.gpp.com.secondapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,13 @@ import secondapp.gpp.com.secondapp.base.BaseFragment;
 
 public class Fragment3 extends BaseFragment implements View.OnClickListener {
 
-
+    private Fragment fragment3_1;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =inflater.inflate(R.layout.f3,null,false);
         title_tv=(TextView)view.findViewById(R.id.title_tv);
-
         title_tv.setOnClickListener(this);
         return view;
     }
