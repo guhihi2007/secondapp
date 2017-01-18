@@ -65,50 +65,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         viewPager.addOnPageChangeListener(new MyOnPageListener());
     }
 
-    @Override
-    protected void onStart() {
-        Log.v(TAG, "Activity---onStart()");
-
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        Log.v(TAG, "Activity---onResume()");
-
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        Log.v(TAG, "Activity---onPause()");
-
-        super.onPause();
-    }
-
-
-    @Override
-    protected void onStop() {
-        Log.v(TAG, "Activity---onStop()");
-
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        Log.v(TAG, "Activity---onDestroy()");
-        stopService(new Intent(this,MyService.class));
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onRestart() {
-        Log.v(TAG, "Activity---onRestart()");
-
-
-        super.onRestart();
-
-    }
 
 
     public void initView() {
@@ -147,6 +103,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         id_ph_bt.setOnClickListener(this);
         id_fl_bt.setOnClickListener(this);
         id_gl_bt.setOnClickListener(this);
+//        viewPager.setOffscreenPageLimit(3);//设置预缓存页数(太粗暴):预加载当前页旁边的3个
     }
 
     public void resetImageBt(int id) {
@@ -218,6 +175,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     break;
                 case 2:
                     resetImageBt(3);
+
                     break;
                 case 3:
                     resetImageBt(4);
@@ -229,6 +187,52 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         public void onPageScrollStateChanged(int state) {
 
         }
+    }
+
+
+    @Override
+    protected void onStart() {
+        Log.v(TAG, "Activity---onStart()");
+
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.v(TAG, "Activity---onResume()");
+
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.v(TAG, "Activity---onPause()");
+
+        super.onPause();
+    }
+
+
+    @Override
+    protected void onStop() {
+        Log.v(TAG, "Activity---onStop()");
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.v(TAG, "Activity---onDestroy()");
+        stopService(new Intent(this,MyService.class));
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.v(TAG, "Activity---onRestart()");
+
+
+        super.onRestart();
+
     }
 }
 

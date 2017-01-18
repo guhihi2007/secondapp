@@ -19,6 +19,7 @@ import secondapp.gpp.com.secondapp.database.DataArray;
 
 /**
  * Created by Administrator on 2017/1/3.
+ * Listeview Adapter
  */
 
 public class MyAdapter extends BaseAdapter {

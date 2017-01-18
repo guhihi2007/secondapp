@@ -77,13 +77,13 @@ public class MySearchBar extends FragmentActivity implements Initial, View.OnCli
             case R.id.title_bt:
                 break;
             case R.id.search_page_btn1:
-                ft1.add(R.id.search_framelayout,new Search_fragment1());
+                ft1.replace(R.id.search_framelayout,new Search_fragment1());
                 break;
             case R.id.search_page_btn2:
-                ft1.add(R.id.search_framelayout,new Search_fragment2());
+                ft1.replace(R.id.search_framelayout,new Search_fragment2());
                 break;
             case R.id.search_page_btn3:
-                ft1.add(R.id.search_framelayout,new Search_fragment3());
+                ft1.replace(R.id.search_framelayout,new Search_fragment3());
                 break;
         }
         ft1.commit();
