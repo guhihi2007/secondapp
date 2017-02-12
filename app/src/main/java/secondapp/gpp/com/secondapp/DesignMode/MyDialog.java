@@ -23,7 +23,6 @@ public class MyDialog extends Dialog implements Initial, View.OnClickListener {
     private Button cancel_btn;
     private Button ok_btn;
 
-    private myListener listener;
 
     public MyDialog(Context context) {
         super(context, R.style.MyDialog);
