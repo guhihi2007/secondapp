@@ -2,11 +2,8 @@ package secondapp.gpp.com.secondapp.service;
 
 import android.app.Notification;
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.MediaPlayer;
-import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -80,6 +77,9 @@ public class MyService extends Service {
     }
 
 
+
+
+
     /**
      * 服务销毁时的回调
      */
@@ -106,7 +106,6 @@ public class MyService extends Service {
         return new MyBinder();
 
     }
-
     public void startDownload() {
         Log.v(TAG, "调用MyBinder.startDownload方法");
     }

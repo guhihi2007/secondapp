@@ -1,5 +1,6 @@
 package secondapp.gpp.com.secondapp.ui;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,12 +10,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+import secondapp.gpp.com.secondapp.DesignMode.MyDialog;
 import secondapp.gpp.com.secondapp.service.MyService;
 import secondapp.gpp.com.secondapp.R;
 import secondapp.gpp.com.secondapp.base.BaseFragment;
@@ -66,7 +69,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
 
-
     public void initView() {
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
@@ -81,8 +83,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         BaseFragment f3 = new Fragment3();
         BaseFragment f4 = new Fragment4();
 
-        list_fm.add(f1);
         list_fm.add(f2);
+        list_fm.add(f1);
         list_fm.add(f3);
         list_fm.add(f4);
 
@@ -157,6 +159,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
     }
 
+
+
     class MyOnPageListener implements OnPageChangeListener {
 
         @Override
@@ -222,9 +226,36 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onDestroy() {
         Log.v(TAG, "Activity---onDestroy()");
-        stopService(new Intent(this,MyService.class));
+        stopService(new Intent(this, MyService.class));
         super.onDestroy();
     }
+
+    //退出对话框
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            AlertDialog isExit = new AlertDialog.Builder(this).create();
+//            isExit.setTitle("System");
+//            isExit.setMessage("Do you want to Exit?");
+//            isExit.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", mListener);
+//            isExit.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", mListener);
+//            isExit.show();
+        }
+        return false;
+    }
+    //对话框监听器
+//    DialogInterface.OnClickListener mListener = new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialog, int which) {
+//            switch (which) {
+//                case DialogInterface.BUTTON_NEGATIVE:
+//                    break;
+//                case DialogInterface.BUTTON_POSITIVE:
+//                    finish();
+//                    break;
+//            }
+//        }
+//    };
 
     @Override
     protected void onRestart() {
