@@ -1,6 +1,5 @@
 package secondapp.gpp.com.secondapp.ui;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -44,6 +43,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView fenlei_IV;
     private ImageView guanli_IV;
 
+    private MyDialog myDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +160,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
 
-
     class MyOnPageListener implements OnPageChangeListener {
 
         @Override
@@ -240,9 +239,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 //            isExit.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", mListener);
 //            isExit.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", mListener);
 //            isExit.show();
+            MyDialog myDialog = new MyDialog.MyDialogBuilder(this).create();
+            myDialog.setOkListener(new MyDialog.OkListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.v("mydialog", "OkListener");
+                }
+            });
+            myDialog.setCancelListener(new MyDialog.CancelListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.v("mydialog", "CancleListener");
+                }
+            });
+            myDialog.setThemeResId(R.style.MyDialog);
+            myDialog.show();
         }
         return false;
     }
+
     //对话框监听器
 //    DialogInterface.OnClickListener mListener = new DialogInterface.OnClickListener() {
 //        @Override
