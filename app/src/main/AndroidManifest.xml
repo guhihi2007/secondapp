@@ -10,17 +10,21 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.MainActivity"
-            android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+
         <activity
             android:name=".ui.MySearchBar"
             android:windowSoftInputMode="stateAlwaysVisible" />
         <activity android:name=".ui.MyServiceActivity" />
+        <activity android:name=".ui.TableLayoutActivity" />
+        <activity android:name=".ui.MyCalculator"/>
 
+        <activity android:name=".ui.MyDrawerLayout" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <service android:name=".service.MyService" />
         <!--广播静态注册-->
         <!--<receiver android:name=".MyBroadCast" >-->

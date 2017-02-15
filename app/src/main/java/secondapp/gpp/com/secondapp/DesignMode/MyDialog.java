@@ -44,7 +44,7 @@ public class MyDialog extends Dialog implements Initial,View.OnClickListener {
     }
 
     public MyDialog(Context context) {
-        super(context);
+        super(context,R.style.MyDialog);
         this.context = context;
     }
 
@@ -81,7 +81,6 @@ public class MyDialog extends Dialog implements Initial,View.OnClickListener {
                 break;
         }
     }
-
 
     public static class MyDialogBuilder {
         private Context context;
@@ -145,5 +144,7 @@ public class MyDialog extends Dialog implements Initial,View.OnClickListener {
     public interface OkListener {
         void onClick(View view);
     }
+
+
 
 }

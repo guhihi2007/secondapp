@@ -8,11 +8,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -44,6 +46,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView guanli_IV;
 
     private MyDialog myDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +100,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         paihang_IV = (ImageView) findViewById(R.id.paihang_IV);
         fenlei_IV = (ImageView) findViewById(R.id.fenlei_IV);
         guanli_IV = (ImageView) findViewById(R.id.guanli_IV);
+
 
     }
 
@@ -252,7 +256,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     Log.v("mydialog", "CancleListener");
                 }
             });
-            myDialog.setThemeResId(R.style.MyDialog);
+//            myDialog.setThemeResId(R.style.MyDialog);
             myDialog.show();
         }
         return false;

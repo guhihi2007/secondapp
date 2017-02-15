@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:shrinkColumns="1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/enter_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="第一个TextView"
+        android:textSize="15sp"
+        />
+    <TableRow>
+        <TextView
+            android:id="@+id/tr_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="行内TextView---1"
+            android:textSize="15sp"
+            />
+        <TextView
+            android:id="@+id/tr_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="行内TextView---2"
+            android:textSize="15sp"
+            />
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="行内按钮1"
+            android:textSize="15sp"
+            />
+    </TableRow>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="行外按钮2"
+        android:textSize="15sp"
+        />
+</TableLayout>
