@@ -14,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -30,23 +31,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ArrayList<Fragment> list_fm = new ArrayList<>();
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
-    private LinearLayout layout_f1;
-    private LinearLayout layout_f2;
-    private LinearLayout layout_f3;
-    private LinearLayout layout_f4;
-
-    private LinearLayout id_jx_bt;
-    private LinearLayout id_ph_bt;
-    private LinearLayout id_fl_bt;
-    private LinearLayout id_gl_bt;
-
-    private ImageView jingxuan_IV;
-    private ImageView paihang_IV;
-    private ImageView fenlei_IV;
-    private ImageView guanli_IV;
-
+    private LinearLayout layout_f1,layout_f2,layout_f3,layout_f4;
+    private LinearLayout id_jx_bt,id_ph_bt,id_fl_bt,id_gl_bt;
+    private ImageView jingxuan_IV,paihang_IV,fenlei_IV,guanli_IV;
     private MyDialog myDialog;
 
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +91,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         fenlei_IV = (ImageView) findViewById(R.id.fenlei_IV);
         guanli_IV = (ImageView) findViewById(R.id.guanli_IV);
 
-
+        listView=(ListView)findViewById(R.id.drawer_listview);
     }
 
     public void initListener() {
@@ -110,6 +100,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         id_fl_bt.setOnClickListener(this);
         id_gl_bt.setOnClickListener(this);
 //        viewPager.setOffscreenPageLimit(3);//设置预缓存页数(太粗暴):预加载当前页旁边的3个
+
+        listView.setAdapter(new MyAdapter(this));
     }
 
     public void resetImageBt(int id) {

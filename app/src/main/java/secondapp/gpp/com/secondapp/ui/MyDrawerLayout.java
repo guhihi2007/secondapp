@@ -2,6 +2,7 @@ package secondapp.gpp.com.secondapp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,7 @@ public class MyDrawerLayout extends Activity {
     private ImageView imageView;
     private Button button;
     private View view;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class MyDrawerLayout extends Activity {
 //        textView=(TextView) findViewById(R.id.drawer_list_tv1);
 //        imageView=(ImageView) findViewById(R.id.drawer_list_image);
 //        button=(Button) findViewById(R.id.drawer_list_bt);
+//        viewPager = (ViewPager)findViewById(R.id.viewPager);
 
         listView.setAdapter(new MyAdapter(this));
     }
