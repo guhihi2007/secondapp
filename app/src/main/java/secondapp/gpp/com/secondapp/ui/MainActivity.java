@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private MyDialog myDialog;
 
     private ListView listView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
